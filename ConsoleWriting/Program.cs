@@ -7,7 +7,7 @@ namespace ConsoleWriting
 {
     class Program
     {
-        async static Task Main(string[] args)
+        public async static Task Main(string[] args)
         {
             var count = 0;
 
