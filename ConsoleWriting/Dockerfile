@@ -3,7 +3,7 @@ WORKDIR /app
 
 RUN dotnet --version
 
-COPY *.csproj ./
+COPY ConsoleWriting.csproj ./
 RUN dotnet restore
 
 COPY . ./
