@@ -4,7 +4,7 @@ WORKDIR /app
 RUN dotnet --version
 RUN echo "$PWD"
 
-COPY ConsoleWriting.csproj ./
+COPY ConsoleWriting/ConsoleWriting.csproj ./
 RUN dotnet restore
 
 COPY . ./
