@@ -1,40 +1,18 @@
 version: "3.9"
 services:
 
-  mysql:
-    image: mysql:5.7
-    restart: always
+  watchtower:
+    image: containrrr/watchtower
     volumes:
-      - todo-mysql-data:/var/lib/mysql
-    ports:
-      - '3306:3306'
-    environment: 
-      MYSQL_ROOT_PASSWORD: pass123
-      MYSQL_DATABASE: mysql_database_name
-      MYSQL_USER: clientuser
-      MYSQL_PASSWORD: clientpass
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 30
 
   consolewriting:
-    build: ./ConsoleWriting
+    image: registry.gitlab.com/petriceko/dockerdemo:Version3
     restart: always
     depends_on:
-      - mysql
-
-  # nepotrebujem pripajat consolovku na mysql db pretoze som sa pripojil cez Workbench
-  # mysqlclient:
-  #   build: ./MySqlClient
-
-  # aj ked tu ziadnu siet nedefinujem, docker vytvara svoju vlastnu izolovanu (privatnu) od vonkajsieho prostredia a na jednotlive dockre sa pripajam cez jednu IP a forwarduju sa iba porty
-  # clanok: 
-  #       https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples/
-  #       https://runnable.com/docker/docker-compose-networking
-  # ak nastartujem docker compose, defaultna siet sa vola podla root priecinka
-  # docker network ls
-  # ak chcem vyuzivat externu siet a teda IP ziskat ces DHCP, pouzijem network mode "host". Docker uz teda nebude izolovany od vonkajsieho sveta
-  # https://forums.docker.com/t/option-network-mode-host-in-docker-compose-file-not-working-as-expected/51682
-
-volumes:
-  todo-mysql-data:
+      - watchtower
 
 # docker-compose build
 # docker-compose up
@@ -44,7 +22,7 @@ volumes:
 # docker-compose images
 
 # ak updatnem consolovku, nestaci si ju iba getnut pomocou pull, povodny image treba odstranit a docker compose nastartovat. 
-# Docker compose images sa sice odstrania ale data ulozene na volume ostavaju, pokial ich explicitne vymazat nechcem
+# docker-compose images sa sice odstrania ale data ulozene na volume ostavaju, pokial ich explicitne vymazat nechcem
 # docker-compose rm
 
 # docker-compose restart

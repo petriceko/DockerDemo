@@ -13,12 +13,12 @@ namespace ConsoleWriting
 
             while (true)
             {
-                Console.WriteLine($"Hello World! - {count} - Update2");
+                Console.WriteLine($"Hello World! - {count} - Update3.1");
                 await File.AppendAllTextAsync("WriteLines.txt", "Hello World!" + Environment.NewLine);
                 await Task.Delay(1000);
                 count++;
-                if (count == 30)
-                    throw new Exception("TestException");
+                //if (count == 30)
+                //    throw new Exception("TestException");
             }
         }
     }

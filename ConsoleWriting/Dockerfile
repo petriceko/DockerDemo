@@ -51,9 +51,16 @@ ENTRYPOINT ["dotnet", "ConsoleWriting.dll"]
 
 # Gitlab:
 # https://gitlab.com/petriceko/DockerDemo/container_registry
+# https://gitlab.com/petriceko/DockerDemo/container_registry/1900894
 # docker login registry.gitlab.com
-# docker build -t registry.gitlab.com/petriceko/dockerdemo .
-# docker push registry.gitlab.com/petriceko/dockerdemo
+# --docker build -t registry.gitlab.com/petriceko/dockerdemo .
+# dotnet publish -c Release
+# docker build -t registry.gitlab.com/petriceko/dockerdemo:Version3 .
+# docker push registry.gitlab.com/petriceko/dockerdemo:Version3
+# docker pull registry.gitlab.com/petriceko/dockerdemo:Version3
+# docker create --name core-writing-console registry.gitlab.com/petriceko/dockerdemo:Version2
+# docker start core-writing-console
+# docker attach --sig-proxy=false core-writing-console
 
 
 
