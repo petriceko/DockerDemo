@@ -11,9 +11,10 @@ ENTRYPOINT ["dotnet", "ConsoleWriting.dll"]
 
 # spustenie:
 # ist do priecinku, kde sa Dockerfile nachadza
-# docker build -t writing-docker-image -f Dockerfile .              - vybuildovanie noveho dockera na zaklade Dockerfilu s nazvom writing-docker
-# docker images                                                     - zobrazenie noveho dockera
+# docker build -t writing-docker-image -f Dockerfile .
+# docker images
 # docker create --name core-writing-console writing-docker-image
+# docker container ps -all
 # docker start core-writing-console
 # docker attach --sig-proxy=false core-writing-console
 # docker stop core-writing-console
@@ -38,17 +39,6 @@ ENTRYPOINT ["dotnet", "ConsoleWriting.dll"]
 # docker volume inspect sharing-folder
 # docker run -v sharing-folder:/etc/shared --name core-writing-console writing-docker-image
 
-
-
-
-
-# docker build -f Dockerfile .
-# docker run 'imageId'
-# docker run -d --name myapp aspnetapp
-
-# docker images
-# docker image rm
-
 # Gitlab:
 # https://gitlab.com/petriceko/DockerDemo/container_registry
 # https://gitlab.com/petriceko/DockerDemo/container_registry/1900894
@@ -58,15 +48,6 @@ ENTRYPOINT ["dotnet", "ConsoleWriting.dll"]
 # docker build -t registry.gitlab.com/petriceko/dockerdemo:Version3 .
 # docker push registry.gitlab.com/petriceko/dockerdemo:Version3
 # docker pull registry.gitlab.com/petriceko/dockerdemo:Version3
-# docker create --name core-writing-console registry.gitlab.com/petriceko/dockerdemo:Version2
+# docker create --name core-writing-console registry.gitlab.com/petriceko/dockerdemo:Version3
 # docker start core-writing-console
 # docker attach --sig-proxy=false core-writing-console
-
-
-
-
-
-
-
-# ENTRYPOINT ["./ContainerSample"]
-# docker run -d -p 8080:80 --name myapp aspnetapp
