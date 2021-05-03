@@ -14,8 +14,8 @@ services:
     depends_on:
       - watchtower
 
-# docker-compose build
 # dotnet publish -c Release
+# docker-compose build
 # docker-compose up
 # docker-compose up -d
 # docker-compose down
