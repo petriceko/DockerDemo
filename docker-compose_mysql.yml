@@ -20,8 +20,6 @@ services:
     depends_on:
       - mysql
 
-  # nepotrebujem pripajat consolovku na mysql db pretoze som sa pripojil cez Workbench
-
   # aj ked tu ziadnu siet nedefinujem, docker vytvara svoju vlastnu izolovanu (privatnu) od vonkajsieho prostredia a na jednotlive dockre sa pripajam cez jednu IP a forwarduju sa iba porty
   # clanok: 
   #       https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples/
@@ -33,25 +31,4 @@ services:
 
 volumes:
   todo-mysql-data:
-
-# docker-compose build
-# docker-compose up
-# docker-compose up -d
-# docker-compose down
-
-# ak updatnem consolovku, nestaci si ju iba getnut pomocou pull, povodny image treba odstranit a docker compose nastartovat. 
-# Docker compose images sa sice odstrania ale data ulozene na volume ostavaju, pokial ich explicitne vymazat nechcem
-# docker-compose rm
-# docker-compose pull consolewriting
-# docker-compose images
-
-# docker-compose restart
-# docker-compose pause
-# docker-compose unpause
-
-# ak spustim docker compose detached, mozem sa nan pripojit:
-# docker-compose exec consolewriting bash
-
-# docker-compose up -d --force-recreate - treba overit, ci to vzdy negetne latest verziu docker images
-
 
