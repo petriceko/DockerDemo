@@ -14,7 +14,7 @@ namespace ConsoleWriting
             while (true)
             {
                 Console.WriteLine($"Hello World! - {count} - Update3.18");
-                await File.AppendAllTextAsync("WriteLines.txt", "Hello World!" + Environment.NewLine);
+                //await File.AppendAllTextAsync("WriteLines.txt", "Hello World!" + Environment.NewLine);
                 await Task.Delay(1000);
                 count++;
                 //if (count == 30)
